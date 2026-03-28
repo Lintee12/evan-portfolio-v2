@@ -1,0 +1,21 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 56px;
+  background-color: rgba(11, 11, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--mantine-color-dark-6);
+}
+
+.link {
+  color: var(--mantine-color-gray-4);
+  text-decoration: none;
+  font-size: var(--mantine-font-size-sm);
+  transition: color 150ms ease;
+}
+
+.link:hover {
+  color: var(--mantine-color-white);
+}
