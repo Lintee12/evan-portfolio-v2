@@ -32,9 +32,7 @@ function CategoryBlock({ category }: { category: SkillCategory }) {
             <Stack gap={6}>
                 {category.skills.map((skill) => (
                     <Group key={skill.name} justify="space-between">
-                        <Text size="sm" c="gray.4">
-                            {skill.name}
-                        </Text>
+                        <Text size="sm">{skill.name}</Text>
                         <Text
                             size="xs"
                             c={skill.level === "expert" ? "accent.5" : skill.level === "proficient" ? "gray.5" : "dark.3"}

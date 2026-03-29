@@ -12,7 +12,7 @@ export function HeroSection() {
                 hi, I&apos;m
             </Text>
 
-            <Title order={1} c="white" lh={1.1}>
+            <Title order={1} lh={1.1}>
                 {siteConfig.name}
             </Title>
 

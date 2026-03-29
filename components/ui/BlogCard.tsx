@@ -31,26 +31,20 @@ export function BlogCard({ post }: BlogCardProps) {
             href={`/blog/${post.slug}`}
             styles={{
                 root: {
-                    backgroundColor: "var(--mantine-color-dark-8)",
-                    borderColor: "var(--mantine-color-dark-6)",
                     textDecoration: "none",
                     display: "flex",
                     flexDirection: "column",
                     transition: "border-color 150ms ease",
-                    "&:hover": {
-                        borderColor: "var(--mantine-color-dark-4)",
-                    },
                 },
             }}
         >
             <Stack gap="sm" style={{ flex: 1 }}>
-                <Title order={3} size="md" c="white" lh={1.3}>
+                <Title order={3} size="md" lh={1.3}>
                     {post.title}
                 </Title>
                 <Text
                     dangerouslySetInnerHTML={{ __html: sanitizeWordPressContent(post.excerpt) }}
                     size="sm"
-                    c="dimmed"
                     lineClamp={2}
                     style={{ flex: 1 }}
                     component="div"

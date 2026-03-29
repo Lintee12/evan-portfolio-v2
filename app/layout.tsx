@@ -30,7 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             minHeight: "100vh",
                             display: "flex",
                             flexDirection: "column",
-                            backgroundColor: "var(--mantine-color-dark-9)",
                         }}
                     >
                         <Navbar />

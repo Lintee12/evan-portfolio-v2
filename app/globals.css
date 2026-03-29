@@ -10,30 +10,12 @@ html {
 
 body {
     margin: 0;
-    background-color: #0b0b10;
-    color: var(--mantine-color-gray-3);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    background: #0b0b10;
-}
-::-webkit-scrollbar-thumb {
-    background: var(--mantine-color-dark-5);
-    border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--mantine-color-dark-4);
-}
-
 /* Prose styles for blog post content */
 .prose {
-    color: var(--mantine-color-gray-3);
     line-height: 1.8;
     font-size: 1rem;
 }
@@ -48,7 +30,6 @@ body {
 }
 .prose h2 {
     font-size: 1.4rem;
-    border-bottom: 1px solid var(--mantine-color-dark-6);
     padding-bottom: 0.4rem;
 }
 .prose p {
@@ -59,15 +40,12 @@ body {
     text-decoration: underline;
 }
 .prose code {
-    background: var(--mantine-color-dark-7);
     padding: 0.15em 0.4em;
     border-radius: 4px;
     font-size: 0.875em;
     font-family: "IBM Plex Mono", monospace;
 }
 .prose pre {
-    background: var(--mantine-color-dark-8);
-    border: 1px solid var(--mantine-color-dark-6);
     border-radius: 6px;
     padding: 1rem 1.25rem;
     overflow-x: auto;
@@ -90,21 +68,25 @@ body {
     border-left: 3px solid var(--mantine-color-accent-5);
     margin: 0;
     padding: 0.5rem 1rem;
-    color: var(--mantine-color-dimmed);
-    background: var(--mantine-color-dark-8);
     border-radius: 0 4px 4px 0;
 }
 .prose hr {
     border: none;
-    border-top: 1px solid var(--mantine-color-dark-6);
+    border-top: 1px solid var(--mantine-color-dark-4);
     margin: 2rem 0;
 }
 
 .prose figure {
+    min-width: 100% !important;
+    max-width: 100% !important;
     margin: 0 !important;
 }
 
+.prose img {
+    width: 100%;
+}
 .prose iframe {
+    min-width: 100% !important;
     max-width: 100% !important;
     aspect-ratio: 16/9;
     max-height: fit-content !important;

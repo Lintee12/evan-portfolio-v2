@@ -58,7 +58,7 @@ export default async function PostPage({ params }: Props) {
             </Link>
 
             <Stack gap="md" mb="xl">
-                <Title order={1} c="white" lh={1.2}>
+                <Title c={"white"} order={1} lh={1.2}>
                     {post.title}
                 </Title>
 

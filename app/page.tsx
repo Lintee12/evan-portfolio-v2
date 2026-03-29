@@ -9,11 +9,11 @@ export default function HomePage() {
     return (
         <PageShell>
             <HeroSection />
-            <Divider my="xl" color="dark.7" />
+            <Divider my="xl" />
             <ProjectsSection />
-            <Divider my="xl" color="dark.7" />
+            <Divider my="xl" />
             <SkillsSection />
-            <Divider my="xl" color="dark.7" />
+            <Divider my="xl" />
             <BlogSection />
         </PageShell>
     );

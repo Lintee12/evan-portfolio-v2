@@ -13,10 +13,10 @@ export function Navbar() {
     return (
         <>
             <Box component="header" className={classes.header}>
-                <Group justify="space-between" h="100%" px={{ base: "md", sm: "0" }} maw={1100} mx="auto">
+                <Group justify="space-between" h="100%" px={{ base: "md", md: "0" }} maw={1100} mx="auto">
                     {/* Wordmark */}
                     <Anchor component={Link} href="/" underline="never">
-                        <Text fw={600} size="sm" c="white" ff="monospace">
+                        <Text fw={600} size="sm" ff="monospace">
                             {siteConfig.name}
                         </Text>
                     </Anchor>
@@ -63,7 +63,7 @@ export function Navbar() {
                     </Group>
 
                     {/* Mobile burger */}
-                    <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" color="gray.4" />
+                    <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
                 </Group>
             </Box>
 
@@ -72,28 +72,16 @@ export function Navbar() {
                 opened={opened}
                 onClose={close}
                 title={
-                    <Text fw={600} ff="monospace" c="white" size="sm">
+                    <Text fw={600} ff="monospace" size="sm">
                         {siteConfig.name}
                     </Text>
                 }
                 size="xs"
                 position="right"
-                styles={{
-                    content: { backgroundColor: "var(--mantine-color-dark-8)" },
-                    header: { backgroundColor: "var(--mantine-color-dark-8)" },
-                }}
             >
                 <Stack gap="lg" pt="md">
                     {navLinks.map((link) => (
-                        <Anchor
-                            key={link.href}
-                            component={Link}
-                            href={link.href}
-                            onClick={close}
-                            size="md"
-                            c="gray.3"
-                            underline="never"
-                        >
+                        <Anchor key={link.href} component={Link} href={link.href} onClick={close} size="md" underline="never">
                             {link.label}
                         </Anchor>
                     ))}
