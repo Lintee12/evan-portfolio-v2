@@ -1,4 +1,4 @@
-import { Divider } from "@mantine/core";
+import { Box } from "@mantine/core";
 import { PageShell } from "@/components/layout/PageShell";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
@@ -9,11 +9,11 @@ export default function HomePage() {
     return (
         <PageShell>
             <HeroSection />
-            <Divider my="xl" />
+            <Box style={{ height: 1, background: "var(--border-color)" }} my="xl" />
             <ProjectsSection />
-            <Divider my="xl" />
+            <Box style={{ height: 1, background: "var(--border-color)" }} my="xl" />
             <SkillsSection />
-            <Divider my="xl" />
+            <Box style={{ height: 1, background: "var(--border-color)" }} my="xl" />
             <BlogSection />
         </PageShell>
     );

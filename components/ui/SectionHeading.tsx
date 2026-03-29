@@ -1,4 +1,4 @@
-import { Title, Text, Stack, type TitleOrder } from '@mantine/core';
+import { Title, Text, Stack, type TitleOrder, Box } from '@mantine/core';
 
 interface SectionHeadingProps {
   title: string;
@@ -8,7 +8,6 @@ interface SectionHeadingProps {
 
 /**
  * SectionHeading — consistent heading style used across all page sections.
- * Drop this at the top of any new section you create.
  */
 export function SectionHeading({
   title,
@@ -16,12 +15,19 @@ export function SectionHeading({
   order = 2,
 }: SectionHeadingProps) {
   return (
-    <Stack gap="xs" mb="xl">
-      <Title order={order} c="white">
+    <Stack gap={6} mb="xl">
+      <Title
+        order={order}
+        style={{
+          letterSpacing: order === 1 ? '-0.03em' : '-0.02em',
+          color: 'var(--text-primary)',
+          fontSize: order === 1 ? 'clamp(1.8rem, 4vw, 2.5rem)' : undefined,
+        }}
+      >
         {title}
       </Title>
       {subtitle && (
-        <Text size="sm" c="dimmed" maw={560}>
+        <Text size="sm" lh={1.6} maw={520} style={{ color: 'var(--text-dimmed)' }}>
           {subtitle}
         </Text>
       )}

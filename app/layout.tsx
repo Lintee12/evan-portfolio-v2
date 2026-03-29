@@ -21,10 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" data-mantine-color-scheme="dark">
             <head>
-                <ColorSchemeScript forceColorScheme="dark" />
+                <ColorSchemeScript defaultColorScheme="dark" />
             </head>
             <body>
-                <MantineProvider theme={theme} forceColorScheme="dark">
+                <MantineProvider theme={theme} defaultColorScheme="dark">
                     <div
                         style={{
                             minHeight: "100vh",

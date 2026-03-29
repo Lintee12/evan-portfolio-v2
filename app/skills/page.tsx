@@ -1,4 +1,4 @@
-import { SimpleGrid, Stack, Text, Group, ThemeIcon, Divider } from '@mantine/core';
+import { SimpleGrid, Stack, Text, Group, ThemeIcon, Box, Progress } from '@mantine/core';
 import {
   IconNetwork,
   IconShieldLock,
@@ -17,46 +17,73 @@ export const metadata: Metadata = {
   description: 'My technical skill set.',
 };
 
-// Keep this in sync with SkillsSection.tsx icon map
 const iconMap: Record<string, React.ReactNode> = {
-  IconNetwork: <IconNetwork size={20} />,
-  IconShieldLock: <IconShieldLock size={20} />,
-  IconServer: <IconServer size={20} />,
-  IconTerminal2: <IconTerminal2 size={20} />,
-  IconActivity: <IconActivity size={20} />,
+  IconNetwork: <IconNetwork size={18} />,
+  IconShieldLock: <IconShieldLock size={18} />,
+  IconServer: <IconServer size={18} />,
+  IconTerminal2: <IconTerminal2 size={18} />,
+  IconActivity: <IconActivity size={18} />,
 };
 
-const levelColor: Record<string, string> = {
-  expert: 'accent.5',
-  proficient: 'gray.5',
-  familiar: 'dark.3',
+const levelValue: Record<string, number> = {
+  expert: 100,
+  proficient: 68,
+  familiar: 36,
 };
 
 function CategorySection({ category }: { category: SkillCategory }) {
   return (
-    <Stack gap="md">
-      <Group gap="sm">
-        <ThemeIcon size="md" variant="subtle" color="accent">
-          {iconMap[category.icon] ?? <IconServer size={20} />}
-        </ThemeIcon>
-        <Text size="md" fw={600} c="white">
-          {category.label}
-        </Text>
-      </Group>
+    <Box
+      p="lg"
+      style={{
+        background: 'var(--card-bg)',
+        border: '1px solid var(--border-color)',
+        borderRadius: 'var(--mantine-radius-md)',
+      }}
+    >
+      <Stack gap="md">
+        <Group gap="sm">
+          <ThemeIcon size="md" variant="light" color="accent" radius="sm">
+            {iconMap[category.icon] ?? <IconServer size={18} />}
+          </ThemeIcon>
+          <Text size="md" fw={600} style={{ color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
+            {category.label}
+          </Text>
+        </Group>
 
-      <Stack gap={8}>
-        {category.skills.map((skill) => (
-          <Group key={skill.name} justify="space-between">
-            <Text size="sm" c="gray.4">
-              {skill.name}
-            </Text>
-            <Text size="xs" c={levelColor[skill.level]} ff="monospace">
-              {skill.level}
-            </Text>
-          </Group>
-        ))}
+        <Stack gap={12}>
+          {category.skills.map((skill) => (
+            <Stack key={skill.name} gap={5}>
+              <Group justify="space-between">
+                <Text size="sm" style={{ color: 'var(--text-primary)' }}>
+                  {skill.name}
+                </Text>
+                <Text
+                  size="xs"
+                  ff="monospace"
+                  style={{
+                    color:
+                      skill.level === 'expert'
+                        ? 'var(--mantine-color-accent-5)'
+                        : skill.level === 'proficient'
+                        ? 'var(--text-dimmed)'
+                        : 'var(--skill-dot-familiar)',
+                  }}
+                >
+                  {skill.level}
+                </Text>
+              </Group>
+              <Progress
+                value={levelValue[skill.level]}
+                size={3}
+                color={skill.level === 'expert' ? 'accent' : skill.level === 'proficient' ? 'gray' : 'dark'}
+                style={{ opacity: 0.6 }}
+              />
+            </Stack>
+          ))}
+        </Stack>
       </Stack>
-    </Stack>
+    </Box>
   );
 }
 
@@ -70,30 +97,30 @@ export default function SkillsPage() {
       />
 
       {/* Legend */}
-      <Group gap="lg" mb="xl">
+      <Group gap="xl" mb="xl">
         {(['expert', 'proficient', 'familiar'] as const).map((level) => (
-          <Group key={level} gap={6}>
-            <div
+          <Group key={level} gap={8}>
+            <Box
               style={{
-                width: 8,
-                height: 8,
-                borderRadius: '50%',
+                width: 24,
+                height: 3,
+                borderRadius: 2,
                 backgroundColor:
                   level === 'expert'
                     ? 'var(--mantine-color-accent-5)'
                     : level === 'proficient'
-                    ? 'var(--mantine-color-gray-5)'
-                    : 'var(--mantine-color-dark-3)',
+                    ? 'var(--text-dimmed)'
+                    : 'var(--skill-dot-familiar)',
               }}
             />
-            <Text size="xs" c="dimmed" ff="monospace">
+            <Text size="xs" ff="monospace" style={{ color: 'var(--text-dimmed)' }}>
               {level}
             </Text>
           </Group>
         ))}
       </Group>
 
-      <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="xl">
+      <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
         {skillCategories.map((cat) => (
           <CategorySection key={cat.id} category={cat} />
         ))}

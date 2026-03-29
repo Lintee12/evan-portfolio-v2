@@ -2,15 +2,34 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    height: 56px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--mantine-color-dark-4);
-    background-color: var(--mantine-color-dark-8);
+    height: 60px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--navbar-border);
+    background-color: var(--navbar-bg);
+    transition: background-color 200ms ease, border-color 200ms ease;
 }
 
 .link {
     text-decoration: none;
     font-size: var(--mantine-font-size-sm);
+    font-weight: 500;
+    color: var(--text-dimmed);
     transition: color 150ms ease;
+    letter-spacing: 0.01em;
+}
+
+.link:hover {
+    color: var(--text-primary);
+}
+
+.wordmark {
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.accentDot {
+    color: var(--mantine-color-accent-5);
 }

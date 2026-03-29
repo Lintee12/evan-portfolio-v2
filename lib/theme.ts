@@ -1,7 +1,6 @@
 import { createTheme, MantineColorsTuple } from "@mantine/core";
 
 // ─── Brand colours ────────────────────────────────────────────────────────────
-// One accent colour used sparingly. Everything else is neutral.
 const accent: MantineColorsTuple = [
     "#eafaf3", // 0 – lightest tint
     "#d0f4e3",
@@ -18,6 +17,30 @@ const accent: MantineColorsTuple = [
 const theme = createTheme({
     primaryColor: "accent",
     colors: { accent },
+    fontFamily: "'DM Sans', 'Geist', system-ui, sans-serif",
+    fontFamilyMonospace: "'Geist Mono', 'IBM Plex Mono', monospace",
+    headings: {
+        fontFamily: "'DM Sans', system-ui, sans-serif",
+        fontWeight: "700",
+    },
+    defaultRadius: "md",
+    components: {
+        Card: {
+            defaultProps: {
+                padding: "lg",
+            },
+        },
+        Button: {
+            defaultProps: {
+                radius: "md",
+            },
+        },
+        Badge: {
+            defaultProps: {
+                radius: "sm",
+            },
+        },
+    },
 });
 
 export default theme;

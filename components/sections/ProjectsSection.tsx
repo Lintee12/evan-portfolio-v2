@@ -1,5 +1,5 @@
 "use client";
-import { SimpleGrid, Anchor, Group, Skeleton } from "@mantine/core";
+import { SimpleGrid, Anchor, Group, Skeleton, Box } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -13,8 +13,7 @@ export function ProjectsSection() {
 
     useEffect(() => {
         async function getData() {
-            const data = await getPosts({ max: 6, category: "Project" });
-
+            const data = await getPosts({ max: 4, category: "Project" });
             setPosts((await data).posts);
         }
         getData();
@@ -31,8 +30,10 @@ export function ProjectsSection() {
                     posts.map((post) => <BlogCard key={post.slug} post={post} />)
                 ) : (
                     <>
-                        <Skeleton h={196} />
-                        <Skeleton h={196} />
+                        <Skeleton h={180} radius="md" />
+                        <Skeleton h={180} radius="md" />
+                        <Skeleton h={180} radius="md" />
+                        <Skeleton h={180} radius="md" />
                     </>
                 )}
             </SimpleGrid>
@@ -43,7 +44,7 @@ export function ProjectsSection() {
                     href="/projects"
                     size="sm"
                     c="accent.5"
-                    style={{ display: "flex", alignItems: "center", gap: 4 }}
+                    style={{ display: "flex", alignItems: "center", gap: 4, fontWeight: 500 }}
                 >
                     All projects <IconArrowRight size={14} />
                 </Anchor>

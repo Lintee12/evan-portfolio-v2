@@ -1,6 +1,6 @@
 'use client';
 
-import { Group, Text, Anchor, Box, ActionIcon } from '@mantine/core';
+import { Group, Text, Anchor, Box, ActionIcon, Stack } from '@mantine/core';
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
 import { siteConfig } from '@/data/config';
 
@@ -14,13 +14,19 @@ export function Footer() {
       px="md"
       mt="auto"
       style={{
-        borderTop: '1px solid var(--mantine-color-dark-6)',
+        borderTop: '1px solid var(--footer-border)',
+        transition: 'border-color 200ms ease',
       }}
     >
-      <Group justify="space-between" maw={1100} mx="auto">
-        <Text size="xs" c="dimmed" ff="monospace">
-          © {year} {siteConfig.name}
-        </Text>
+      <Group justify="space-between" maw={1100} mx="auto" align="center">
+        <Stack gap={2}>
+          <Text size="sm" fw={600} style={{ color: 'var(--text-primary)' }}>
+            {siteConfig.name}
+          </Text>
+          <Text size="xs" style={{ color: 'var(--text-dimmed)' }} ff="monospace">
+            © {year} · {siteConfig.title}
+          </Text>
+        </Stack>
 
         <Group gap="xs">
           {siteConfig.socials.github && (
@@ -32,6 +38,7 @@ export function Footer() {
               variant="subtle"
               color="gray"
               size="sm"
+              aria-label="GitHub"
             >
               <IconBrandGithub size={16} />
             </ActionIcon>
@@ -45,6 +52,7 @@ export function Footer() {
               variant="subtle"
               color="gray"
               size="sm"
+              aria-label="LinkedIn"
             >
               <IconBrandLinkedin size={16} />
             </ActionIcon>
@@ -56,6 +64,7 @@ export function Footer() {
               variant="subtle"
               color="gray"
               size="sm"
+              aria-label="Email"
             >
               <IconMail size={16} />
             </ActionIcon>
